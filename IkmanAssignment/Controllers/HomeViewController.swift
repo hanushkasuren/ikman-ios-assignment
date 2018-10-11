@@ -29,7 +29,9 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         self.searchController.searchResultsUpdater = self
         self.searchController.dimsBackgroundDuringPresentation = false
         self.definesPresentationContext = true
-        //self.itemsTableView.tableHeaderView = searchController.searchBar
+        self.searchController.searchBar.tintColor = UIColor.white
+        self.searchController.searchBar.placeholder = "Search by Title"
+        self.navigationItem.searchController = self.searchController
     }
     
     //MARK: - Delegate & DataSource Methods
@@ -48,6 +50,10 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true) // to remove selection color of the row
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Items with description"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
