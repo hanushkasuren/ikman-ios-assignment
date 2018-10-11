@@ -9,13 +9,21 @@
 /* Begin PBXBuildFile section */
 		8080D02F62D488C561F1A4A8 /* Pods_IkmanAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC4463B0DDEA97F58CC4BAD /* Pods_IkmanAssignment.framework */; };
 		922B086B216F8654007CA966 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922B086A216F8654007CA966 /* AppDelegate.swift */; };
-		922B086D216F8654007CA966 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922B086C216F8654007CA966 /* ViewController.swift */; };
 		922B0870216F8654007CA966 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922B086E216F8654007CA966 /* Main.storyboard */; };
 		922B0873216F8654007CA966 /* IkmanAssignment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 922B0871216F8654007CA966 /* IkmanAssignment.xcdatamodeld */; };
 		922B0875216F8657007CA966 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 922B0874216F8657007CA966 /* Assets.xcassets */; };
 		922B0878216F8657007CA966 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922B0876216F8657007CA966 /* LaunchScreen.storyboard */; };
 		922B0883216F8657007CA966 /* IkmanAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922B0882216F8657007CA966 /* IkmanAssignmentTests.swift */; };
 		922B088E216F8657007CA966 /* IkmanAssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922B088D216F8657007CA966 /* IkmanAssignmentUITests.swift */; };
+		923BCC07216F98D600154D60 /* NavigateBackDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923BCC06216F98D600154D60 /* NavigateBackDelegate.swift */; };
+		923BCC15216F98E300154D60 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923BCC10216F98E300154D60 /* HomeViewController.swift */; };
+		923BCC16216F98E300154D60 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923BCC12216F98E300154D60 /* AlertViewController.swift */; };
+		923BCC1B216F98E900154D60 /* CommonEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923BCC18216F98E900154D60 /* CommonEnums.swift */; };
+		923BCC1C216F98E900154D60 /* CommonAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923BCC19216F98E900154D60 /* CommonAttributes.swift */; };
+		923BCC1D216F98E900154D60 /* CommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923BCC1A216F98E900154D60 /* CommonMethods.swift */; };
+		923BCC30216F98FC00154D60 /* UIColor+ColorFromHexValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923BCC2B216F98FC00154D60 /* UIColor+ColorFromHexValue.swift */; };
+		923BCC31216F98FC00154D60 /* UIView+CustomCornerRadiusWithBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923BCC2D216F98FC00154D60 /* UIView+CustomCornerRadiusWithBorder.swift */; };
+		923BCC32216F98FC00154D60 /* String+Trim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923BCC2F216F98FC00154D60 /* String+Trim.swift */; };
 		C6AA2190A02AD55642BD2F09 /* Pods_IkmanAssignmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD63016BBF2D2C5082C1CBD /* Pods_IkmanAssignmentUITests.framework */; };
 		CACA2945B0C7097A80AA3A03 /* Pods_IkmanAssignmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34EC2054B352B95DC6834C59 /* Pods_IkmanAssignmentTests.framework */; };
 /* End PBXBuildFile section */
@@ -44,7 +52,6 @@
 		915F30D0173C5BDF26A90530 /* Pods-IkmanAssignmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IkmanAssignmentTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IkmanAssignmentTests/Pods-IkmanAssignmentTests.release.xcconfig"; sourceTree = "<group>"; };
 		922B0867216F8654007CA966 /* IkmanAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IkmanAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		922B086A216F8654007CA966 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		922B086C216F8654007CA966 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		922B086F216F8654007CA966 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		922B0872216F8654007CA966 /* IkmanAssignment.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IkmanAssignment.xcdatamodel; sourceTree = "<group>"; };
 		922B0874216F8657007CA966 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,6 +63,15 @@
 		922B0889216F8657007CA966 /* IkmanAssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IkmanAssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		922B088D216F8657007CA966 /* IkmanAssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IkmanAssignmentUITests.swift; sourceTree = "<group>"; };
 		922B088F216F8657007CA966 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		923BCC06216F98D600154D60 /* NavigateBackDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigateBackDelegate.swift; sourceTree = "<group>"; };
+		923BCC10216F98E300154D60 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		923BCC12216F98E300154D60 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		923BCC18216F98E900154D60 /* CommonEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonEnums.swift; sourceTree = "<group>"; };
+		923BCC19216F98E900154D60 /* CommonAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonAttributes.swift; sourceTree = "<group>"; };
+		923BCC1A216F98E900154D60 /* CommonMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonMethods.swift; sourceTree = "<group>"; };
+		923BCC2B216F98FC00154D60 /* UIColor+ColorFromHexValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ColorFromHexValue.swift"; sourceTree = "<group>"; };
+		923BCC2D216F98FC00154D60 /* UIView+CustomCornerRadiusWithBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+CustomCornerRadiusWithBorder.swift"; sourceTree = "<group>"; };
+		923BCC2F216F98FC00154D60 /* String+Trim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Trim.swift"; sourceTree = "<group>"; };
 		A10153ECA48CA7FE63A3CDB1 /* Pods-IkmanAssignmentUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IkmanAssignmentUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IkmanAssignmentUITests/Pods-IkmanAssignmentUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A97D8D98BDD23728919A719B /* Pods-IkmanAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IkmanAssignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-IkmanAssignment/Pods-IkmanAssignment.release.xcconfig"; sourceTree = "<group>"; };
 		B733B8236322D5DCB865E5DF /* Pods-IkmanAssignmentUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IkmanAssignmentUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IkmanAssignmentUITests/Pods-IkmanAssignmentUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,13 +155,16 @@
 		922B0869216F8654007CA966 /* IkmanAssignment */ = {
 			isa = PBXGroup;
 			children = (
-				922B086A216F8654007CA966 /* AppDelegate.swift */,
-				922B086C216F8654007CA966 /* ViewController.swift */,
-				922B086E216F8654007CA966 /* Main.storyboard */,
-				922B0874216F8657007CA966 /* Assets.xcassets */,
-				922B0876216F8657007CA966 /* LaunchScreen.storyboard */,
-				922B0879216F8657007CA966 /* Info.plist */,
-				922B0871216F8654007CA966 /* IkmanAssignment.xcdatamodeld */,
+				923BCC35216F9AAB00154D60 /* Resources */,
+				923BCC34216F9A6400154D60 /* SupportiveFiles */,
+				923BCC33216F9A1600154D60 /* CoreData */,
+				923BCC29216F98FC00154D60 /* Extensions */,
+				923BCC25216F98F800154D60 /* Models */,
+				923BCC1E216F98F200154D60 /* Views */,
+				923BCC17216F98E900154D60 /* CommonStuff */,
+				923BCC05216F98D600154D60 /* Delegates */,
+				923BCC08216F98DD00154D60 /* CustomClasses */,
+				923BCC0D216F98E300154D60 /* Controllers */,
 			);
 			path = IkmanAssignment;
 			sourceTree = "<group>";
@@ -166,6 +185,123 @@
 				922B088F216F8657007CA966 /* Info.plist */,
 			);
 			path = IkmanAssignmentUITests;
+			sourceTree = "<group>";
+		};
+		923BCC05216F98D600154D60 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				923BCC06216F98D600154D60 /* NavigateBackDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		923BCC08216F98DD00154D60 /* CustomClasses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomClasses;
+			sourceTree = "<group>";
+		};
+		923BCC0D216F98E300154D60 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				923BCC10216F98E300154D60 /* HomeViewController.swift */,
+				923BCC11216F98E300154D60 /* DialogBoxes */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		923BCC11216F98E300154D60 /* DialogBoxes */ = {
+			isa = PBXGroup;
+			children = (
+				923BCC12216F98E300154D60 /* AlertViewController.swift */,
+			);
+			path = DialogBoxes;
+			sourceTree = "<group>";
+		};
+		923BCC17216F98E900154D60 /* CommonStuff */ = {
+			isa = PBXGroup;
+			children = (
+				923BCC18216F98E900154D60 /* CommonEnums.swift */,
+				923BCC19216F98E900154D60 /* CommonAttributes.swift */,
+				923BCC1A216F98E900154D60 /* CommonMethods.swift */,
+			);
+			path = CommonStuff;
+			sourceTree = "<group>";
+		};
+		923BCC1E216F98F200154D60 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				922B0876216F8657007CA966 /* LaunchScreen.storyboard */,
+				922B086E216F8654007CA966 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		923BCC25216F98F800154D60 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		923BCC29216F98FC00154D60 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				923BCC2A216F98FC00154D60 /* UIColor */,
+				923BCC2C216F98FC00154D60 /* UIView */,
+				923BCC2E216F98FC00154D60 /* String */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		923BCC2A216F98FC00154D60 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				923BCC2B216F98FC00154D60 /* UIColor+ColorFromHexValue.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		923BCC2C216F98FC00154D60 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				923BCC2D216F98FC00154D60 /* UIView+CustomCornerRadiusWithBorder.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		923BCC2E216F98FC00154D60 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				923BCC2F216F98FC00154D60 /* String+Trim.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		923BCC33216F9A1600154D60 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				922B0871216F8654007CA966 /* IkmanAssignment.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		923BCC34216F9A6400154D60 /* SupportiveFiles */ = {
+			isa = PBXGroup;
+			children = (
+				922B086A216F8654007CA966 /* AppDelegate.swift */,
+				922B0879216F8657007CA966 /* Info.plist */,
+			);
+			path = SupportiveFiles;
+			sourceTree = "<group>";
+		};
+		923BCC35216F9AAB00154D60 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				922B0874216F8657007CA966 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,10 +497,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-IkmanAssignment/Pods-IkmanAssignment-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -378,9 +516,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				923BCC1D216F98E900154D60 /* CommonMethods.swift in Sources */,
+				923BCC16216F98E300154D60 /* AlertViewController.swift in Sources */,
+				923BCC32216F98FC00154D60 /* String+Trim.swift in Sources */,
+				923BCC07216F98D600154D60 /* NavigateBackDelegate.swift in Sources */,
+				923BCC1C216F98E900154D60 /* CommonAttributes.swift in Sources */,
 				922B0873216F8654007CA966 /* IkmanAssignment.xcdatamodeld in Sources */,
-				922B086D216F8654007CA966 /* ViewController.swift in Sources */,
+				923BCC30216F98FC00154D60 /* UIColor+ColorFromHexValue.swift in Sources */,
+				923BCC15216F98E300154D60 /* HomeViewController.swift in Sources */,
+				923BCC1B216F98E900154D60 /* CommonEnums.swift in Sources */,
 				922B086B216F8654007CA966 /* AppDelegate.swift in Sources */,
+				923BCC31216F98FC00154D60 /* UIView+CustomCornerRadiusWithBorder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,7 +704,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K5Z3WPWS4G;
-				INFOPLIST_FILE = IkmanAssignment/Info.plist;
+				INFOPLIST_FILE = IkmanAssignment/SupportiveFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -577,7 +723,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K5Z3WPWS4G;
-				INFOPLIST_FILE = IkmanAssignment/Info.plist;
+				INFOPLIST_FILE = IkmanAssignment/SupportiveFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -7,6 +7,7 @@ target 'IkmanAssignment' do
 
   # Pods for IkmanAssignment
   pod 'Alamofire', '~> 4.7'
+  pod 'MBProgressHUD', '~> 1.0'
 
   target 'IkmanAssignmentTests' do
     inherit! :search_paths
