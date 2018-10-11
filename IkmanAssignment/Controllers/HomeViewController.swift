@@ -12,4 +12,7 @@ import CoreData
 
 class HomeViewController: UIViewController{
     
+    override func viewDidLoad() {
+        
+    }
 }

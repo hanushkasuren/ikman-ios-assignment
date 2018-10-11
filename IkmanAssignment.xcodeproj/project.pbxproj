@@ -299,9 +299,17 @@
 		923BCC35216F9AAB00154D60 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				923BCC36216FA2EF00154D60 /* AppIcon */,
 				922B0874216F8657007CA966 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		923BCC36216FA2EF00154D60 /* AppIcon */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppIcon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
