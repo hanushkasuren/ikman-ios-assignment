@@ -1,0 +1,6 @@
+framework module Pods_IkmanAssignmentUITests {
+  umbrella header "Pods-IkmanAssignmentUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
