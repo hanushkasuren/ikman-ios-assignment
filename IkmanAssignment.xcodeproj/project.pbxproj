@@ -28,6 +28,8 @@
 		923BCC3B216FBEAC00154D60 /* ItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923BCC3A216FBEAC00154D60 /* ItemsTableViewCell.swift */; };
 		923BCC3E216FD91000154D60 /* defaultImageThumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 923BCC3D216FD91000154D60 /* defaultImageThumbnail.png */; };
 		923BCC46216FD9FB00154D60 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923BCC42216FD9FB00154D60 /* UIImage+Resize.swift */; };
+		9263556F2170D83E00F4899D /* CDItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263556D2170D83E00F4899D /* CDItem+CoreDataClass.swift */; };
+		926355702170D83E00F4899D /* CDItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263556E2170D83E00F4899D /* CDItem+CoreDataProperties.swift */; };
 		C6AA2190A02AD55642BD2F09 /* Pods_IkmanAssignmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD63016BBF2D2C5082C1CBD /* Pods_IkmanAssignmentUITests.framework */; };
 		CACA2945B0C7097A80AA3A03 /* Pods_IkmanAssignmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34EC2054B352B95DC6834C59 /* Pods_IkmanAssignmentTests.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +82,8 @@
 		923BCC3A216FBEAC00154D60 /* ItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewCell.swift; sourceTree = "<group>"; };
 		923BCC3D216FD91000154D60 /* defaultImageThumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImageThumbnail.png; sourceTree = "<group>"; };
 		923BCC42216FD9FB00154D60 /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
+		9263556D2170D83E00F4899D /* CDItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9263556E2170D83E00F4899D /* CDItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A10153ECA48CA7FE63A3CDB1 /* Pods-IkmanAssignmentUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IkmanAssignmentUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IkmanAssignmentUITests/Pods-IkmanAssignmentUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A97D8D98BDD23728919A719B /* Pods-IkmanAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IkmanAssignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-IkmanAssignment/Pods-IkmanAssignment.release.xcconfig"; sourceTree = "<group>"; };
 		B733B8236322D5DCB865E5DF /* Pods-IkmanAssignmentUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IkmanAssignmentUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IkmanAssignmentUITests/Pods-IkmanAssignmentUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -293,6 +297,7 @@
 		923BCC33216F9A1600154D60 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				923BCC482170D4DB00154D60 /* DataModels */,
 				922B0871216F8654007CA966 /* IkmanAssignment.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -346,6 +351,15 @@
 				923BCC42216FD9FB00154D60 /* UIImage+Resize.swift */,
 			);
 			path = UIImage;
+			sourceTree = "<group>";
+		};
+		923BCC482170D4DB00154D60 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				9263556D2170D83E00F4899D /* CDItem+CoreDataClass.swift */,
+				9263556E2170D83E00F4899D /* CDItem+CoreDataProperties.swift */,
+			);
+			path = DataModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -563,6 +577,7 @@
 			files = (
 				923BCC1D216F98E900154D60 /* CommonMethods.swift in Sources */,
 				923BCC39216FBE4C00154D60 /* Item.swift in Sources */,
+				9263556F2170D83E00F4899D /* CDItem+CoreDataClass.swift in Sources */,
 				923BCC16216F98E300154D60 /* AlertViewController.swift in Sources */,
 				923BCC32216F98FC00154D60 /* String+Trim.swift in Sources */,
 				923BCC3B216FBEAC00154D60 /* ItemsTableViewCell.swift in Sources */,
@@ -571,6 +586,7 @@
 				922B0873216F8654007CA966 /* IkmanAssignment.xcdatamodeld in Sources */,
 				923BCC30216F98FC00154D60 /* UIColor+ColorFromHexValue.swift in Sources */,
 				923BCC15216F98E300154D60 /* HomeViewController.swift in Sources */,
+				926355702170D83E00F4899D /* CDItem+CoreDataProperties.swift in Sources */,
 				923BCC1B216F98E900154D60 /* CommonEnums.swift in Sources */,
 				922B086B216F8654007CA966 /* AppDelegate.swift in Sources */,
 				923BCC46216FD9FB00154D60 /* UIImage+Resize.swift in Sources */,

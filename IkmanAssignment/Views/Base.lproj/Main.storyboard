@@ -33,12 +33,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defualtThumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="DV0-uF-Mak">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defualtThumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="DV0-uF-Mak">
                                                     <rect key="frame" x="20" y="7" width="55.5" height="55.5"/>
                                                     <color key="backgroundColor" red="0.070588235289999995" green="0.5568627451" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="DV0-uF-Mak" secondAttribute="height" multiplier="1:1" id="ywc-sA-Ahe"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raB-x9-321">
                                                     <rect key="frame" x="85.5" y="11" width="236.5" height="24"/>
@@ -69,6 +74,7 @@
                                             <outlet property="descriptionLabel" destination="bWz-qX-dim" id="cKC-mA-Cef"/>
                                             <outlet property="thumbnailImageView" destination="DV0-uF-Mak" id="5yV-GL-uHY"/>
                                             <outlet property="titleLabel" destination="raB-x9-321" id="CM6-yn-jgP"/>
+                                            <segue destination="Ted-0c-vHe" kind="show" identifier="homeViewToDetailsViewSegue" id="tVq-qP-CeV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -96,6 +102,21 @@
             </objects>
             <point key="canvasLocation" x="1077.5999999999999" y="-564.46776611694156"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Ydc-eq-iS4">
+            <objects>
+                <viewController id="Ted-0c-vHe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mVL-2o-eGg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="MLp-rM-XbC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UxT-kA-l5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1780" y="-564"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="QI1-C2-Cx5">
             <objects>
@@ -105,6 +126,7 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.070588235289999995" green="0.5568627451" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.070588235289999995" green="0.5568627451" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -125,7 +147,7 @@
         <!--Alert View Controller-->
         <scene sceneID="X2F-Zi-MkJ">
             <objects>
-                <viewController storyboardIdentifier="alertViewController" id="iae-1v-g74" customClass="AlertViewController" customModule="LayoutindexAssignment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="alertViewController" id="iae-1v-g74" customClass="AlertViewController" customModule="IkmanAssignment" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xZT-YY-OKC"/>
                         <viewControllerLayoutGuide type="bottom" id="6NL-Bu-oJN"/>
@@ -162,13 +184,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="272" height="159"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header Goes Here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="N3D-Cy-yK3">
-                                                <rect key="frame" x="20" y="49" width="232" height="20.5"/>
+                                                <rect key="frame" x="20" y="49.5" width="232" height="20"/>
                                                 <fontDescription key="fontDescription" name="VarelaRound-Regular" family="Varela Round" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Please describe what you want to tell in detail" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrh-wR-iX1">
-                                                <rect key="frame" x="20" y="79.5" width="232" height="50"/>
+                                                <rect key="frame" x="20" y="79.5" width="232" height="49.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="VarelaRound-Regular" family="Varela Round" pointSize="14"/>
@@ -246,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lYJ-tB-xiR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1940" y="-564"/>
+            <point key="canvasLocation" x="2492" y="-564"/>
         </scene>
     </scenes>
     <resources>

@@ -44,7 +44,6 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         return 80.0
     }
     
@@ -73,41 +72,18 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         DispatchQueue.global(qos: .userInitiated).async {
             
             //set image thumbnail in background thread/queue
-            if let imageURLString = item.imageURL, let imageURL = URL(string: imageURLString), let imageData = NSData(contentsOf: imageURL){
-                let originalImage = UIImage(data: imageData as Data, scale: 0.1)
+            if let imageURLString = item.imageURL, let imageURL = URL(string: imageURLString), let imageData = NSData(contentsOf: imageURL), let originalImage = UIImage(data: imageData as Data){
                 
-                let cellImageViewWidth: CGFloat = 70 * 0.8
-                let cellIMageViewHeight = cellImageViewWidth
-                
-                let originalImageWidth = originalImage?.size.width
-                let originalImageHeight = originalImage?.size.height
-                let isImageLandscape = originalImageWidth! > originalImageHeight!
-                var thumbnailSize:CGSize?
-                
-                if isImageLandscape{
-                    
-                    let originalImageWidthHeightRatio = originalImageWidth! / originalImageHeight!
-                    let thumbnailWidth = originalImageWidthHeightRatio * cellIMageViewHeight
-                    thumbnailSize = CGSize(width: thumbnailWidth, height: cellIMageViewHeight)
-                    
-                }else{
-                    
-                    let originalImageHeightWidthRatio = originalImageHeight! / originalImageWidth!
-                    let thumbnailHeight = originalImageHeightWidthRatio * cellImageViewWidth
-                    thumbnailSize = CGSize(width: cellImageViewWidth, height: thumbnailHeight)
-                }
-                
-                thumbnail = originalImage?.scaleTosize(thumbnailSize!)
+                thumbnail = CommonMethods.generateItemThumbnail(image: originalImage)
+           
                 
             }else{
                 thumbnail = UIImage(named: "defualtThumbnail")
             }
             
-            
             DispatchQueue.main.async{
-                //cell?.imageView?.image = thumbnail
+                cell?.thumbnailImageView?.image = thumbnail
             }
-            
         }
         
         cell?.titleLabel.text = item.title
@@ -157,7 +133,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                             let title = item["title"] as? String
                             let description = item["description"] as? String
                             
-                            self.items.append(Item(imageURL: imageURL, title: title, description: description))
+                            self.items.append(Item(imageURL: imageURL, title: title, description: description, imageThumbnail: nil))
                         }
                     }
                     

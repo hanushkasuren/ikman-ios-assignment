@@ -67,4 +67,29 @@ struct CommonMethods {
         self.alertViewController?.hasBlurEffect = hasBlurEffect
         window?.addSubview(self.alertViewController!.view)
     }
+    
+    //MARK: - Image Processing
+    
+    static func generateItemThumbnail(image: UIImage) -> UIImage{
+        
+        let originalItemImageWidth = image.size.width
+        let originalItemImageHeight = image.size.height
+        let isImageLandscape = originalItemImageWidth > originalItemImageHeight
+        var scaledImageSize:CGSize?
+        
+        if isImageLandscape{
+            
+            let originalImageWidthHeightRatio = originalItemImageWidth / originalItemImageHeight
+            let itemImageWidth = originalImageWidthHeightRatio * CommonAttributes.itemThumbnailHeight
+            scaledImageSize = CGSize(width: itemImageWidth * 2.5, height: CommonAttributes.itemThumbnailHeight * 2.5)
+            
+        }else{
+            
+            let originalImageHeightWidthRatio = originalItemImageHeight / originalItemImageWidth
+            let itemImageHeight = originalImageHeightWidthRatio * CommonAttributes.itemThumbnailWidth
+            scaledImageSize = CGSize(width: CommonAttributes.itemThumbnailWidth * 2.5, height: itemImageHeight * 2.5)
+        }
+        
+        return image.scaleTosize(scaledImageSize!)
+    }
 }
