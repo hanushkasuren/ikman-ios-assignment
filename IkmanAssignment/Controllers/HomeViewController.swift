@@ -9,21 +9,36 @@
 import UIKit
 import Alamofire
 import CoreData
+import MBProgressHUD
 
 class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating{
     
     @IBOutlet weak var itemsTableView: UITableView!
     
-    var items = [Item]()
-    var filteredItems = [Item]()
+    var items: [NSManagedObject] = []
+    var filteredItems: [NSManagedObject] = []
     let searchController = UISearchController(searchResultsController: nil)
+    var managedContext = CommonMethods.getManagedContext()
+    var selectedItem: NSManagedObject?
+    //var currentProgressHUD: MBProgressHUD?
+    
+    //change status bar color to white
+    override var preferredStatusBarStyle: UIStatusBarStyle { // this should ne there to make status bar light when searching is active
+        return .lightContent
+    }
     
     //MARK: - Override Methods
     
     override func viewDidLoad() {
         
-        //get items
-        self.getItems()
+        if self.loadItems().count == 0{
+            //get items
+            self.getItems()
+        }else{
+            self.items = loadItems()
+        }
+        
+        self.managedContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         
         //search controller
         self.searchController.searchResultsUpdater = self
@@ -32,6 +47,16 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         self.searchController.searchBar.tintColor = UIColor.white
         self.searchController.searchBar.placeholder = "Search by Title"
         self.navigationItem.searchController = self.searchController
+        
+        self.itemsTableView.decelerationRate = .fast // reduce table view scrolling speed.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "homeViewToDetailsViewSegue"{ // pasing selected item to details view controller
+            let detailsViewController = segue.destination as? DetailsViewController
+            detailsViewController?.selectedItem = self.selectedItem
+        }
     }
     
     //MARK: - Delegate & DataSource Methods
@@ -51,6 +76,10 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         tableView.deselectRow(at: indexPath, animated: true) // to remove selection color of the row
     }
     
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        self.selectedItem = self.items[indexPath.row]
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Items with description"
     }
@@ -59,7 +88,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ItemsTableViewCell
         
-        var item = Item()
+        var item: NSManagedObject?
         
         if self.searchController.isActive && self.searchController.searchBar.text != ""{
             item = self.filteredItems[indexPath.row]
@@ -67,28 +96,50 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
             item = self.items[indexPath.row]
         }
         
-        var thumbnail = UIImage(named: "defualtThumbnail")
+        cell?.titleLabel.text = item?.value(forKey: "title") as? String
+        cell?.descriptionLabel.text = item?.value(forKey: "desc") as? String
         
-        DispatchQueue.global(qos: .userInitiated).async {
+        if item?.value(forKey: "image_thumbnail_data") == nil{ //if thumbnail has not been set
+            cell?.thumbnailImageView.image = UIImage(named: "defualtThumbnail")
             
-            //set image thumbnail in background thread/queue
-            if let imageURLString = item.imageURL, let imageURL = URL(string: imageURLString), let imageData = NSData(contentsOf: imageURL), let originalImage = UIImage(data: imageData as Data){
+            DispatchQueue.global(qos: .userInitiated).async {
                 
-                thumbnail = CommonMethods.generateItemThumbnail(image: originalImage)
-           
-                
-            }else{
-                thumbnail = UIImage(named: "defualtThumbnail")
+                if item?.value(forKey: "image_thumbnail_data") != nil{ // if thumbnail has been set
+                    DispatchQueue.main.async {
+                        cell?.thumbnailImageView.image = UIImage(data:item?.value(forKey: "image_thumbnail_data") as! Data)
+                    }
+                }else{
+                    
+                    DispatchQueue.main.async {
+                        CommonMethods.hideProgress(view: self.view) // hide progress
+                        CommonMethods.showProgress(view: self.view, description: "") // Showing progress
+                    }
+                    
+                    if
+                        let imageURLString = item?.value(forKey: "image_url") as? String,
+                        let imageURL = URL(string: imageURLString),
+                        let imageData = NSData(contentsOf: imageURL),
+                        let originalImage = UIImage(data: imageData as Data)
+                    {
+                        
+                        let thumbnail = CommonMethods.generateItemThumbnail(image: originalImage)
+                        let thumbnailData = thumbnail.pngData()
+                        
+                        DispatchQueue.main.async {
+                            item?.setValue(thumbnailData, forKey: "image_thumbnail_data") // this is inside main queue because all the same persistant storage stuff shoul be in one thread
+                            if let item = item{
+                                self.items[indexPath.row] = item //update item in array
+                            }
+                            cell?.thumbnailImageView.image = thumbnail
+                            CommonMethods.hideProgress(view: self.view)
+                        }
+                    }
+                }
             }
             
-            DispatchQueue.main.async{
-                cell?.thumbnailImageView?.image = thumbnail
-            }
+        }else{ // if thumbnail has been set alrady
+            cell?.thumbnailImageView.image = UIImage(data: item?.value(forKey: "image_thumbnail_data") as! Data)
         }
-        
-        cell?.titleLabel.text = item.title
-        cell?.descriptionLabel.text = item.title
-        
         return cell!
     }
     
@@ -97,7 +148,7 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let searchText = searchController.searchBar.text!
         
         self.filteredItems = self.items.filter { item in
-            return (item.title?.lowercased().contains(searchText.lowercased()))!
+            return ((item.value(forKey: "title") as! String).lowercased().contains(searchText.lowercased()))
         }
         self.itemsTableView.reloadData()
     }
@@ -127,13 +178,17 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
                 do{
                     if let dictionaryArray = try JSONSerialization.jsonObject(with: response.data!, options: []) as? [[String: Any]]{ // Converting json data into a dictionary
                         
-                        for item in dictionaryArray{
+                        for (index,item) in dictionaryArray .enumerated(){
                             
-                            let imageURL = item["image"] as? String
-                            let title = item["title"] as? String
-                            let description = item["description"] as? String
+                            if
+                                let imageURL = item["image"] as? String,
+                                let title = item["title"] as? String,
+                                let description = item["description"] as? String{
+                                
+                                let itemID = Int16(index)
                             
-                            self.items.append(Item(imageURL: imageURL, title: title, description: description, imageThumbnail: nil))
+                                self.saveItem(id: itemID, title: title, description: description, imageURL: imageURL, imageThumbnailData: nil) // save item to coredata/persistent storage
+                            }
                         }
                     }
                     
@@ -148,5 +203,40 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
             self.itemsTableView.reloadData() // Reloading data in the table view
             CommonMethods.hideProgress(view: self.view) // Hidding progress
         }
+    }
+    
+    func saveItem(id: Int16, title: String, description: String, imageURL: String, imageThumbnailData: NSData?){
+        
+        // save core data
+        let entity = NSEntityDescription.entity(forEntityName: "Item", in: self.managedContext)!
+        let item = NSManagedObject(entity: entity, insertInto: self.managedContext)
+        
+        item.setValue(id, forKey: "id")
+        item.setValue(title, forKey: "title")
+        item.setValue(description, forKey: "desc")
+        item.setValue(imageURL, forKey: "image_url")
+        item.setValue(imageThumbnailData, forKey: "image_thumbnail_data")
+
+        do{
+            try self.managedContext.save()
+            self.items.append(item) // append item to items array
+        }catch let error{
+            print(error.localizedDescription)
+        }
+    }
+
+    func loadItems() -> [NSManagedObject]{
+     
+        var items: [NSManagedObject] = []
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
+        do{
+            if let fetchResults = try self.managedContext.fetch(fetchRequest) as? [NSManagedObject]{
+                items = fetchResults
+            }
+        }catch let error{
+            print(error.localizedDescription)
+        }
+        
+        return items
     }
 }

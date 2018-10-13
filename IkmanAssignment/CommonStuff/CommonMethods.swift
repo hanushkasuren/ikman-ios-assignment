@@ -29,16 +29,20 @@ struct CommonMethods {
         return hud
     }
     
-    static func showProgress(view: UIView, description: String? = nil){
+    static func showProgress(view: UIView, description: String? = nil) /*-> MBProgressHUD*/{
         
         let hud = self.createHUD(view: view, description: description)
         hud.show(animated: true)
+        
+        //return hud
     }
     
     static func hideProgress(view: UIView){
-        
         MBProgressHUD.hide(for: view, animated: true)
-        
+    }
+    
+    static func hideProgress(hud: MBProgressHUD){
+        hud.hide(animated: true)
     }
     
     // MARK: - Internet
@@ -81,13 +85,13 @@ struct CommonMethods {
             
             let originalImageWidthHeightRatio = originalItemImageWidth / originalItemImageHeight
             let itemImageWidth = originalImageWidthHeightRatio * CommonAttributes.itemThumbnailHeight
-            scaledImageSize = CGSize(width: itemImageWidth * 2.5, height: CommonAttributes.itemThumbnailHeight * 2.5)
+            scaledImageSize = CGSize(width: itemImageWidth * 0.5, height: CommonAttributes.itemThumbnailHeight * 0.5)
             
         }else{
             
             let originalImageHeightWidthRatio = originalItemImageHeight / originalItemImageWidth
             let itemImageHeight = originalImageHeightWidthRatio * CommonAttributes.itemThumbnailWidth
-            scaledImageSize = CGSize(width: CommonAttributes.itemThumbnailWidth * 2.5, height: itemImageHeight * 2.5)
+            scaledImageSize = CGSize(width: CommonAttributes.itemThumbnailWidth * 0.5, height: itemImageHeight * 0.5)
         }
         
         return image.scaleTosize(scaledImageSize!)

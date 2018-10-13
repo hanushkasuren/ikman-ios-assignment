@@ -24,12 +24,12 @@
 		923BCC30216F98FC00154D60 /* UIColor+ColorFromHexValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923BCC2B216F98FC00154D60 /* UIColor+ColorFromHexValue.swift */; };
 		923BCC31216F98FC00154D60 /* UIView+CustomCornerRadiusWithBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923BCC2D216F98FC00154D60 /* UIView+CustomCornerRadiusWithBorder.swift */; };
 		923BCC32216F98FC00154D60 /* String+Trim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923BCC2F216F98FC00154D60 /* String+Trim.swift */; };
-		923BCC39216FBE4C00154D60 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923BCC38216FBE4C00154D60 /* Item.swift */; };
 		923BCC3B216FBEAC00154D60 /* ItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923BCC3A216FBEAC00154D60 /* ItemsTableViewCell.swift */; };
 		923BCC3E216FD91000154D60 /* defaultImageThumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 923BCC3D216FD91000154D60 /* defaultImageThumbnail.png */; };
 		923BCC46216FD9FB00154D60 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923BCC42216FD9FB00154D60 /* UIImage+Resize.swift */; };
-		9263556F2170D83E00F4899D /* CDItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263556D2170D83E00F4899D /* CDItem+CoreDataClass.swift */; };
-		926355702170D83E00F4899D /* CDItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263556E2170D83E00F4899D /* CDItem+CoreDataProperties.swift */; };
+		925C866B2171BE1F00F99EAF /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C86692171BE1F00F99EAF /* Item+CoreDataClass.swift */; };
+		925C866C2171BE1F00F99EAF /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C866A2171BE1F00F99EAF /* Item+CoreDataProperties.swift */; };
+		926355722170E14000F4899D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926355712170E14000F4899D /* DetailsViewController.swift */; };
 		C6AA2190A02AD55642BD2F09 /* Pods_IkmanAssignmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD63016BBF2D2C5082C1CBD /* Pods_IkmanAssignmentUITests.framework */; };
 		CACA2945B0C7097A80AA3A03 /* Pods_IkmanAssignmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34EC2054B352B95DC6834C59 /* Pods_IkmanAssignmentTests.framework */; };
 /* End PBXBuildFile section */
@@ -78,12 +78,12 @@
 		923BCC2B216F98FC00154D60 /* UIColor+ColorFromHexValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ColorFromHexValue.swift"; sourceTree = "<group>"; };
 		923BCC2D216F98FC00154D60 /* UIView+CustomCornerRadiusWithBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+CustomCornerRadiusWithBorder.swift"; sourceTree = "<group>"; };
 		923BCC2F216F98FC00154D60 /* String+Trim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Trim.swift"; sourceTree = "<group>"; };
-		923BCC38216FBE4C00154D60 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		923BCC3A216FBEAC00154D60 /* ItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewCell.swift; sourceTree = "<group>"; };
 		923BCC3D216FD91000154D60 /* defaultImageThumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImageThumbnail.png; sourceTree = "<group>"; };
 		923BCC42216FD9FB00154D60 /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
-		9263556D2170D83E00F4899D /* CDItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDItem+CoreDataClass.swift"; sourceTree = "<group>"; };
-		9263556E2170D83E00F4899D /* CDItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		925C86692171BE1F00F99EAF /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		925C866A2171BE1F00F99EAF /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		926355712170E14000F4899D /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		A10153ECA48CA7FE63A3CDB1 /* Pods-IkmanAssignmentUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IkmanAssignmentUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IkmanAssignmentUITests/Pods-IkmanAssignmentUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A97D8D98BDD23728919A719B /* Pods-IkmanAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IkmanAssignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-IkmanAssignment/Pods-IkmanAssignment.release.xcconfig"; sourceTree = "<group>"; };
 		B733B8236322D5DCB865E5DF /* Pods-IkmanAssignmentUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IkmanAssignmentUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IkmanAssignmentUITests/Pods-IkmanAssignmentUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -218,8 +218,9 @@
 		923BCC0D216F98E300154D60 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				923BCC10216F98E300154D60 /* HomeViewController.swift */,
 				923BCC11216F98E300154D60 /* DialogBoxes */,
+				923BCC10216F98E300154D60 /* HomeViewController.swift */,
+				926355712170E14000F4899D /* DetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -254,6 +255,7 @@
 		923BCC25216F98F800154D60 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				925C86682171A3E500F99EAF /* Classes */,
 				923BCC37216FBE3900154D60 /* Structs */,
 			);
 			path = Models;
@@ -332,7 +334,6 @@
 		923BCC37216FBE3900154D60 /* Structs */ = {
 			isa = PBXGroup;
 			children = (
-				923BCC38216FBE4C00154D60 /* Item.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -356,10 +357,17 @@
 		923BCC482170D4DB00154D60 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
-				9263556D2170D83E00F4899D /* CDItem+CoreDataClass.swift */,
-				9263556E2170D83E00F4899D /* CDItem+CoreDataProperties.swift */,
+				925C86692171BE1F00F99EAF /* Item+CoreDataClass.swift */,
+				925C866A2171BE1F00F99EAF /* Item+CoreDataProperties.swift */,
 			);
 			path = DataModels;
+			sourceTree = "<group>";
+		};
+		925C86682171A3E500F99EAF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -575,18 +583,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				925C866B2171BE1F00F99EAF /* Item+CoreDataClass.swift in Sources */,
 				923BCC1D216F98E900154D60 /* CommonMethods.swift in Sources */,
-				923BCC39216FBE4C00154D60 /* Item.swift in Sources */,
-				9263556F2170D83E00F4899D /* CDItem+CoreDataClass.swift in Sources */,
 				923BCC16216F98E300154D60 /* AlertViewController.swift in Sources */,
 				923BCC32216F98FC00154D60 /* String+Trim.swift in Sources */,
 				923BCC3B216FBEAC00154D60 /* ItemsTableViewCell.swift in Sources */,
+				925C866C2171BE1F00F99EAF /* Item+CoreDataProperties.swift in Sources */,
 				923BCC07216F98D600154D60 /* NavigateBackDelegate.swift in Sources */,
 				923BCC1C216F98E900154D60 /* CommonAttributes.swift in Sources */,
 				922B0873216F8654007CA966 /* IkmanAssignment.xcdatamodeld in Sources */,
+				926355722170E14000F4899D /* DetailsViewController.swift in Sources */,
 				923BCC30216F98FC00154D60 /* UIColor+ColorFromHexValue.swift in Sources */,
 				923BCC15216F98E300154D60 /* HomeViewController.swift in Sources */,
-				926355702170D83E00F4899D /* CDItem+CoreDataProperties.swift in Sources */,
 				923BCC1B216F98E900154D60 /* CommonEnums.swift in Sources */,
 				922B086B216F8654007CA966 /* AppDelegate.swift in Sources */,
 				923BCC46216FD9FB00154D60 /* UIImage+Resize.swift in Sources */,
