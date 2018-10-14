@@ -77,7 +77,13 @@ class HomeViewController: UIViewController,UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        self.selectedItem = self.items[indexPath.row]
+        if self.searchController.isActive && self.searchController.searchBar.text != ""{
+            self.selectedItem = self.filteredItems[indexPath.row]
+        }else{
+            self.selectedItem = self.items[indexPath.row]
+        }
+        
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
